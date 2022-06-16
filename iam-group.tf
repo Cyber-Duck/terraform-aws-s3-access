@@ -23,3 +23,12 @@ resource "aws_iam_group_policy_attachment" "s3_access_policy_attachment" {
     aws_iam_policy.s3_access_policy
   ]
 }
+
+resource "aws_iam_group_policy_attachment" "additional_policy" {
+  for_each = { for arn in var.additional_policy_arn.arn : arn => arn }
+  group   = aws_iam_group.s3_access.name == null ? var.existing_group : aws_iam_group.s3_access.name
+  policy_arn = each.value
+  depends_on = [
+    aws_iam_group.s3_access
+  ]
+}
