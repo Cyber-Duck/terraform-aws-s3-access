@@ -5,10 +5,9 @@ resource "aws_iam_group_policy" "s3_access_policy" {
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
   # This 
-  policy = <<EOT
-  {
-    "Version" : "2012-10-17",
-    "Statement" : [
+  policy = jsonencode({
+    "Version" = "2012-10-17",
+    "Statement" = [
       {
         "Sid" : "",
         "Effect" : "Allow",
@@ -20,8 +19,7 @@ resource "aws_iam_group_policy" "s3_access_policy" {
         "Resource" : [for arn in var.s3.arn : [format("%s%s,", "arn:aws:s3:::", arn )]]
       }
     ]
-  }
-  EOT
+  })
   depends_on = [
     aws_iam_group.s3_access
   ]
