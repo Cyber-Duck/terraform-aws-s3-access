@@ -1,19 +1,16 @@
 variable "iam_user" {
   type        = map(list(string))
   description = "new user creation, default = {['matt.smith', 'janes.doe']}"
-  nullable = false
 }
 
 variable "group_user" {
   type        = map(list(string))
   description = "Users to be added to S3 access group, default = {['matt.smith', 'janes.doe']}"
-  nullable = false
 }
 
 variable "iam_group_name" {
   type        = string
   description = "Name of IAM group to be created, e.g 'Drupal-devs'"
-  nullable = false
 }
 
 variable "existing_group" {
