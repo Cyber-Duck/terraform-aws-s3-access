@@ -109,10 +109,10 @@ variable "iam_user" {
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_policy_arn"></a> [additional\_policy\_arn](#input\_additional\_policy\_arn) | Policy ARN of any additional policys | `map(list(string))` | `null` | no |
 | <a name="input_existing_group"></a> [existing\_group](#input\_existing\_group) | Existing IAM Group | `string` | `null` | no |
-| <a name="input_group_user"></a> [group\_user](#input\_group\_user) | Users to be added to S3 access group, default = {['matt.smith', 'janes.doe']} | `map(list(string))` | n/a | yes |
+| <a name="input_group_user"></a> [group\_user](#input\_group\_user) | Users to be added to S3 access group. | `map(list(string))` | n/a | yes |
 | <a name="input_iam_group_name"></a> [iam\_group\_name](#input\_iam\_group\_name) | Name of IAM group to be created, e.g 'Drupal-devs' | `string` | `null` | no |
-| <a name="input_iam_user"></a> [iam\_user](#input\_iam\_user) | new user creation, default = {['matt.smith', 'janes.doe']} | `map(list(string))` | n/a | yes |
-| <a name="input_s3"></a> [s3](#input\_s3) | name of S3 bucket to use, you can specify to a single file or folder by the path provided here. default = {['client-s3/folder/*', 'etc-s3/folder/mysql\_dump.sql']} | `map(list(string))` | n/a | yes |
+| <a name="input_iam_user"></a> [iam\_user](#input\_iam\_user) | new user creation. | `map(list(string))` | n/a | yes |
+| <a name="input_s3"></a> [s3_arns](#input\_s3) | name of S3 bucket to use, you can specify to a single file or folder by the path provided here. | `map(list(string))` | n/a | yes |
 
 ## Outputs
 
