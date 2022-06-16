@@ -11,6 +11,7 @@ variable "group_user" {
 variable "iam_group_name" {
   type        = string
   description = "Name of IAM group to be created, e.g 'Drupal-devs'"
+  default = null
 }
 
 variable "existing_group" {
