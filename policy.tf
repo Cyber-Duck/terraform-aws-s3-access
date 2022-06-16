@@ -1,5 +1,5 @@
 resource "aws_iam_group_policy" "s3_access_policy" {
-  name     = "s3_access_policy"
+  name     = "s3 access policy"
   group    = aws_iam_group.s3_access.name
 
   # Terraform's "jsonencode" function converts a
