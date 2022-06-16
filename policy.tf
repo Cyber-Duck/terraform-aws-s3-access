@@ -5,7 +5,8 @@ resource "aws_iam_group_policy" "s3_access_policy" {
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
   # This 
-  policy = <<EOT{
+  policy = <<EOT
+  {
     "Version" : "2012-10-17",
     "Statement" : [
       {
