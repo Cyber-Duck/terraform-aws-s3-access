@@ -3,7 +3,7 @@ resource "aws_iam_group" "s3_access" {
 }
 
 resource "aws_iam_group_membership" "access" {
-  name     = format("$_$", var.iam_group_name, "membership")
+  name     = format("%s-%s", var.iam_group_name, "membership")
   /* 
     Adding users to this list gives complete access to all DevOps spaces within company and client accounts. 
    */
@@ -16,7 +16,7 @@ resource "aws_iam_group_membership" "access" {
 }
 
 resource "aws_iam_group_policy_attachment" "s3_access_policy_attachment" {
-  group      = aws_iam_group.s3_access.name != "" ? var.existing_group : null
+  group      = aws_iam_group.s3_access.name == null ? var.existing_group : aws_iam_group.s3_access.name
   policy_arn = aws_iam_group_policy.s3_access_policy.id
   depends_on = [
     aws_iam_group.s3_access,
