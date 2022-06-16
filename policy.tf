@@ -16,7 +16,7 @@ resource "aws_iam_group_policy" "s3_access_policy" {
           "s3:GetObject",
           "s3:GetBucketLocation",
         ],
-        "Resource" : [for arn in var.s3.arn : [format("%s%s,", "arn:aws:s3:::", arn )]]
+        "Resource" : ["gphc-qa-db/database/gphc-qa.sql",]
       }
     ]
   })
@@ -25,3 +25,4 @@ resource "aws_iam_group_policy" "s3_access_policy" {
   ]
 }
 
+# for arn in var.s3.arn : [format("%s%s,", "arn:aws:s3:::", arn )]
