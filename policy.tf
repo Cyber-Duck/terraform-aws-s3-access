@@ -16,7 +16,7 @@ resource "aws_iam_policy" "s3_access_policy" {
           "s3:GetObject",
           "s3:GetBucketLocation"
         ],
-        "Resource" : [ for arn in var.s3.arn : arn ]
+        "Resource" : [ for arn in var.s3_arns.arn : arn ]
       }
     ]
   })
