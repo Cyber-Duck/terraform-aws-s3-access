@@ -20,7 +20,7 @@ variable "existing_group" {
   default = null
 }
 
-variable "s3" {
+variable "s3_arns" {
   type = map(list(string))
   description = "name of S3 bucket to use, you can specify to a single file or folder by the path provided here. default = {['client-s3/folder/*', 'etc-s3/folder/mysql_dump.sql']}"
 }
