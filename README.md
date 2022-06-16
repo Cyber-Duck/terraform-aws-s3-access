@@ -3,14 +3,29 @@
 
 ---
 
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+
+## Modules
+
+No modules.
+
 ## Resources
 
 | Name | Type |
 |------|------|
 | [aws_iam_group.s3_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group) | resource |
 | [aws_iam_group_membership.access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_membership) | resource |
-| [aws_iam_group_policy.s3_access_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy) | resource |
+| [aws_iam_group_policy_attachment.additional_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
 | [aws_iam_group_policy_attachment.s3_access_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_policy.s3_access_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_user.new_user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
 | [aws_iam_group.current_s3_users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_group) | data source |
 
@@ -18,6 +33,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_additional_policy_arn"></a> [additional\_policy\_arn](#input\_additional\_policy\_arn) | Policy ARN of any additional policys | `map(list(string))` | `null` | no |
 | <a name="input_existing_group"></a> [existing\_group](#input\_existing\_group) | Existing IAM Group | `string` | `null` | no |
 | <a name="input_group_user"></a> [group\_user](#input\_group\_user) | Users to be added to S3 access group, default = {['matt.smith', 'janes.doe']} | `map(list(string))` | n/a | yes |
 | <a name="input_iam_group_name"></a> [iam\_group\_name](#input\_iam\_group\_name) | Name of IAM group to be created, e.g 'Drupal-devs' | `string` | `null` | no |

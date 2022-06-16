@@ -1,5 +1,5 @@
 resource "aws_iam_policy" "s3_access_policy" {
-  name     = "s3access"
+  name     = "S3_Access"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
