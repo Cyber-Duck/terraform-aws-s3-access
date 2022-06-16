@@ -1,5 +1,5 @@
 resource "aws_iam_user" "new_user" {
-  for_each = { for user in var.iam-user.users : user => user }
+  for_each = { for user in var.iam_user.users : user => user }
   name     = each.value
 
   tags = {

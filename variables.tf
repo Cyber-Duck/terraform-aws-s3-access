@@ -1,4 +1,4 @@
-variable "iam-user" {
+variable "iam_user" {
   type        = map(list(string))
   description = "new user creation, default = {['matt.smith', 'janes.doe']}"
   nullable = false
