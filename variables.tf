@@ -15,7 +15,7 @@ variable "iam_group_name" {
 
 variable "existing_group" {
   type = string
-  description = "Existing S3 bucket to use."
+  description = "Existing IAM Group"
   default = null
 }
 
