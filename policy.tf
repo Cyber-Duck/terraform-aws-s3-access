@@ -11,9 +11,7 @@ resource "aws_iam_policy" "s3_access_policy" {
         "Sid" : "",
         "Effect" : "Allow",
         "Action" : [
-          "s3:ListBucket",
-          "s3:GetObject",
-          "s3:GetBucketLocation"
+          "s3:*",
         ],
         "Resource" : [for arn in var.s3.arn : format("%s%s,", "arn:aws:s3:::", arn )]
       }
