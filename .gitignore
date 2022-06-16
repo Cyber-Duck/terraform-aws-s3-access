@@ -5,6 +5,7 @@
 *.tfstate
 *.tfstate.*
 
+Dockerfile
 # Crash log files
 crash.log
 
