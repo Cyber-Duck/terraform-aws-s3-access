@@ -8,5 +8,5 @@ output "group_users" {
 }
 output "policy_arn" {
 	description = "List S3 access policy arn"
-	value = aws_iam_group_policy.s3_access_policy.id
+	value = aws_iam_policy.s3_access_policy.arn
 }

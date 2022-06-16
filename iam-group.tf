@@ -17,7 +17,7 @@ resource "aws_iam_group_membership" "access" {
 
 resource "aws_iam_group_policy_attachment" "s3_access_policy_attachment" {
   group      = aws_iam_group.s3_access.name == null ? var.existing_group : aws_iam_group.s3_access.name
-  policy_arn = aws_iam_policy.s3_access_policy.name
+  policy_arn = aws_iam_policy.s3_access_policy.arn
   depends_on = [
     aws_iam_group.s3_access,
     aws_iam_policy.s3_access_policy
