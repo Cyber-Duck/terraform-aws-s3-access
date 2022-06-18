@@ -51,7 +51,7 @@ variable "additional_policy_arn" {
   description = "Policy ARN of any additional policys"
   default     = null
   validation {
-    condition     = can(substr(var.additional_policy_arn, 0, 8) == "arn:aws:")
+    condition     = alltrue([ for arns in var.additional_policy_arn : (substr(arns.arn, 0, 8) == "arn:aws:"))
     error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
   }
 }
