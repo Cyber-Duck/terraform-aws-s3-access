@@ -10,6 +10,7 @@ variable "iam_user" {
 variable "group_user" {
   type        = map(list(string))
   description = "Users to be added to S3 access group, default = {['matt.smith', 'janes.doe']}"
+  default = ""
   validation {
     condition     = can(regex("^[0-9A-Za-z+=,.@_-]+$", var.group_user))
     error_message = "The var.group_user must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
@@ -19,7 +20,7 @@ variable "group_user" {
 variable "iam_group_name" {
   type        = string
   description = "Name of IAM group to be created, e.g 'Drupal-devs'"
-  nullable = true
+  default     = ""
   validation {
     condition     = can(regex("^[0-9A-Za-z+=,.@_-]+$", var.iam_group_name))
     error_message = "The var.iam_group_name must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
@@ -29,7 +30,7 @@ variable "iam_group_name" {
 variable "existing_group" {
   type        = string
   description = "Existing IAM Group"
-  nullable = true
+  default     = ""
   validation {
     condition     = can(regex("^[0-9A-Za-z+=,.@_-]+$", var.existing_group))
     error_message = "The var.existing_group must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
@@ -48,7 +49,7 @@ variable "s3_arns" {
 variable "additional_policy_arn" {
   type        = map(list(string))
   description = "Policy ARN of any additional policys"
-  nullable = true
+  default     = ""
   validation {
     condition     = can(substr(var.additional_policy_arn, 0, 8) == "arn:aws:")
     error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
