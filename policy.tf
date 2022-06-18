@@ -1,5 +1,5 @@
 resource "aws_iam_policy" "s3_access_policy" {
-  name     = "S3_Access"
+  name = "S3_Access"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -16,7 +16,7 @@ resource "aws_iam_policy" "s3_access_policy" {
           "s3:GetObject",
           "s3:GetBucketLocation"
         ],
-        "Resource" : [ for arn in var.s3_arns.arn : arn ]
+        "Resource" : [for arn in var.s3_arns.arn : arn]
       }
     ]
   })
