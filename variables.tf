@@ -41,7 +41,7 @@ variable "s3_arns" {
   type        = map(list(string))
   description = "name of S3 bucket to use, you can specify to a single file or folder by the path provided here. default = {['client-s3/folder/*', 'etc-s3/folder/mysql_dump.sql']}"
   validation {
-    condition     = can(regex("^[arn:aws:s3:::a-z-\/.]+$", var.s3_arns))
+    condition     = can(regex("^[arn:aws:s3:::a-z-\\.]+$", var.s3_arns))
     error_message = "The var.s3_arns value must start with 'arn:aws:s3:::'."
   }
 }
@@ -51,7 +51,7 @@ variable "additional_policy_arn" {
   description = "Policy ARN of any additional policys"
   default     = null
   validation {
-    condition     = can(regex("^[arn:aws:s3:::a-z-\/.]+$", var.additional_policy_arn))
+    condition     = can(regex("^[arn:aws:s3:::a-z-\\.]+$", var.additional_policy_arn))
     error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
   }
 }
