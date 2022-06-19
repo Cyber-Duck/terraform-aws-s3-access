@@ -41,7 +41,7 @@ variable "s3_arns" {
   type        = map(list(string))
   description = "name of S3 bucket to use, you can specify to a single file or folder by the path provided here. default = {['client-s3/folder/*', 'etc-s3/folder/mysql_dump.sql']}"
   validation {
-    condition     = can(regex("^[arn:aws:s3:::a-z-\\.]+$", [for arns in var.additional_policy_arn : flatten(tolist(arns.arn))]))
+    condition     = can(regex("^[arn:aws:s3:::a-z-\\.]+$", [for arns in var.s3_arns : flatten(tolist(arns.arn))]))
     error_message = "The var.s3_arns value must start with 'arn:aws:s3:::'."
   }
 }
