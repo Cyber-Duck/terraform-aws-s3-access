@@ -10,7 +10,7 @@ variable "iam_user" {
 variable "group_user" {
   type        = map(list(string))
   description = "Users to be added to S3 access group, default = {['matt.smith', 'janes.doe']}"
-  default = null
+  default     = null
   validation {
     condition     = var.group_user == null || can(regex("^[0-9A-Za-z+=,.@_-]+$", var.group_user))
     error_message = "The var.group_user must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
