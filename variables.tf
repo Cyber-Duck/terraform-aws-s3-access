@@ -2,7 +2,7 @@ variable "iam_user" {
   type        = map(list(string))
   description = "new user creation, default = {['matt.smith', 'janes.doe']}"
   validation {
-    condition     = var.iam_user != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.iam_user)) : null
+    condition     = var.iam_user != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.iam_user)) : 0
     error_message = "The var.iam_user must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
   }
 }
@@ -12,7 +12,7 @@ variable "group_user" {
   description = "Users to be added to S3 access group, default = {['matt.smith', 'janes.doe']}"
   default     = null
   validation {
-    condition     = var.group_user != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.group_user)) : null
+    condition     = var.group_user != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.group_user)) : 0
     error_message = "The var.group_user must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
   }
 }
@@ -22,7 +22,7 @@ variable "iam_group_name" {
   description = "Name of IAM group to be created, e.g 'Drupal-devs'"
   default     = null
   validation {
-    condition     = var.iam_group_name != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.iam_group_name)) : null
+    condition     = var.iam_group_name != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.iam_group_name)) : 0
     error_message = "The var.iam_group_name must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
   }
 }
@@ -32,7 +32,7 @@ variable "existing_group" {
   description = "Existing IAM Group"
   default     = null
   validation {
-    condition     = var.existing_group != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.existing_group)) : null
+    condition     = var.existing_group != null ? can(regex("^[0-9A-Za-z+=,.@_-]+$", var.existing_group)) : 0
     error_message = "The var.existing_group must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
   }
 }
@@ -51,7 +51,7 @@ variable "additional_policy_arn" {
   description = "Policy ARN of any additional policys"
   default     = null
   validation {
-    condition     = var.additional_policy_arn != null ? can(regex("^[arn:aws:a-z-\\.]+$", [for arns in var.additional_policy_arn.arn : arns])) : null
+    condition     = var.additional_policy_arn != null ? can(regex("^[arn:aws:a-z-\\.]+$", [for arns in var.additional_policy_arn.arn : arns])) : 0
     error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
   }
 }
