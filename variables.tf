@@ -31,10 +31,10 @@ variable "existing_group" {
   type        = string
   description = "Existing IAM Group"
   default     = null
-  validation {
-    condition     = var.existing_group != null ? regex("^[0-9A-Za-z+=,.@_-]+$", var.existing_group) : null
-    error_message = "The var.existing_group must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
-  }
+  # validation {
+  #   condition     = var.existing_group != null ? regex("^[0-9A-Za-z+=,.@_-]+$", var.existing_group) : null
+  #   error_message = "The var.existing_group must contain valid characters please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html."
+  # }
 }
 
 variable "s3_arns" {
@@ -50,8 +50,8 @@ variable "additional_policy_arn" {
   type        = map(list(string))
   description = "Policy ARN of any additional policys"
   default     = null
-  validation {
-    condition     = var.additional_policy_arn != null ? can(regex("^[arn:aws:a-z-\\.]+$", [for arns in var.additional_policy_arn.arn : arns])) : false
-    error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
-  }
+  # validation {
+  #   condition     = var.additional_policy_arn != null ? can(regex("^[arn:aws:a-z-\\.]+$", [for arns in var.additional_policy_arn.arn : arns])) : false
+  #   error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
+  # }
 }
