@@ -46,13 +46,3 @@ variable "s3_arns" {
   #   error_message = "The var.s3_arns value must start with 'arn:aws:s3:::'."
   # }
 }
-
-variable "additional_policy_arn" {
-  type        = map(list(string))
-  description = "Policy ARN of any additional policys"
-  default     = null
-  # validation {
-  #   condition     = var.additional_policy_arn != null ? can(regex("^[arn:aws:a-z-\\.]+$", [for arns in var.additional_policy_arn.arn : arns])) : false
-  #   error_message = "The var.additional_policy_arn value must start with 'arn:aws:' please refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html."
-  # }
-}
